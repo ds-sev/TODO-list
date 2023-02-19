@@ -6,37 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Тестовое задание для поступления на курс Фронтенд разработки от СоларЛаб">
     <meta name="author" content="Dmitry Litvinenko">
-    <title>TODO-list</title>
+    <title>TODO.my</title>
     <link rel="icon" href="./images/favicon_todo.svg" type="image/svg+xml">
     <link rel="alternate icon" href="./images/favicon_todo.png" type="image/png">
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="body">
     <div class="page">
-
-
       <header class="header">
-        <h1 class="project-title">TODO list</h1>
+        <h1 class="project-title">TODO.my</h1>
+        <p class="project-subtitle">...just do it!</p>
       </header>
-
-
       <main class="content">
-        <!--  Разработать приложение для создания списка TODO. Приложение должно содержать поле ввода и список дел. Строка
-списка должна состоять из чекбокса, названия дела и кнопки удалить. Для созхранения списка необходимо использовать
-LocalStorage. -->
-<div class="form-container">
-  <input type="text" class="input-form" placeholder="New Task">
-  <button class="btn-add button"></button>
-</div>
+        <div class="form-container">
+          <input type="text" class="input-form" placeholder="New Task" minlength="2" maxlength="60" required>
+          <button class="btn-add button" type="submit"></button>
+        </div>
 
-        <ul class="list">
-          <li class="list-item"><input class="list-checkbox" type="checkbox"><p class="list-item__text">Lorem ipsum
-            dolor sit amet,
-            <consectetur></consectetur> adipisicing elit. Maxime, velit!</p>
-            <button class="btn-delete button"></button></li>
-          <li class="list-item"><input class="list-checkbox" type="checkbox"><p class="list-item__text">Lorem ipsum</p>
-            <button class="btn-delete button"></button></li>
-        </ul>
+        <ul class="tasks-list">
+
+
+          <template id="todo-item">
+            <li class="list-item"><input class="list-checkbox" type="checkbox">
+              <p class="list-item__text">Lorem ipsum
+                dolor sit amet,
+                <consectetur></consectetur>
+                adipisicing elit. Maxime, velit!
+              </p>
+              <button class="btn-delete button"></button>
+            </li>
+          </template>
+          <!--           <li class="list-item"><input class="list-checkbox" type="checkbox"><p class="list-item__text">Lorem ipsum</p> -->
+          <!--             <button class="btn-delete button" type="submit"></button></li> -->
+          <!--         </ul> -->
 
       </main>
       <footer class="footer">
@@ -44,5 +46,6 @@ LocalStorage. -->
           <a class="link" href="https://github.com/ds-sev">Dmitry Litvinenko</a></span>
       </footer>
     </div>
+    <script src="./pages/index.js" defer></script>
   </body>
 </html>
