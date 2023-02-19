@@ -16,7 +16,7 @@
 
 
       <header class="header">
-        <h1>TODO-list</h1>
+        <h1 class="project-title">TODO list</h1>
       </header>
 
 
@@ -24,13 +24,24 @@
         <!--  Разработать приложение для создания списка TODO. Приложение должно содержать поле ввода и список дел. Строка
 списка должна состоять из чекбокса, названия дела и кнопки удалить. Для созхранения списка необходимо использовать
 LocalStorage. -->
+<div class="form-container">
+  <input type="text" class="input-form" placeholder="New Task">
+  <button class="btn-add button"></button>
+</div>
 
-        <input type="text" class="input-form" placeholder="New Task">
-        <ul class="list"></ul>
+        <ul class="list">
+          <li class="list-item"><input class="list-checkbox" type="checkbox"><p class="list-item__text">Lorem ipsum
+            dolor sit amet,
+            <consectetur></consectetur> adipisicing elit. Maxime, velit!</p>
+            <button class="btn-delete button"></button></li>
+          <li class="list-item"><input class="list-checkbox" type="checkbox"><p class="list-item__text">Lorem ipsum</p>
+            <button class="btn-delete button"></button></li>
+        </ul>
 
       </main>
       <footer class="footer">
-        <span class="footer__copyright">2023 Dmitry Litvinenko</span>
+        <span class="footer__copyright">2023
+          <a class="link" href="https://github.com/ds-sev">Dmitry Litvinenko</a></span>
       </footer>
     </div>
   </body>
