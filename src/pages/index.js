@@ -4,8 +4,11 @@ const todoItemTemplateSelector = '#todo-item'
 const taskTextSelector = '.list-item__text'
 const tasksListSection = document.querySelector('.tasks-list')
 const todoItemAddBtn = document.querySelector('.btn-add')
-const todoItemDelBtn = document.querySelector('.btn-delete')
+const todoItemDelButton = document.querySelector('.btn-delete')
 const taskTemplate = document.querySelector('#todo-item').content.querySelector('.list-item')
+
+const checkboxElement = document.querySelector('.list-checkbox')
+
 //       .content.querySelector('.list-item')
 //       .cloneNode(true)
 
@@ -16,44 +19,115 @@ let tasks = [];
 
 function addTask() {
   const task = newTaskFieldElement.value
+  const isChecked = false
   // if (task === '') {
   //   showError('')
   // }
   const taskObject = {
-    task: task,
+    task,
+    isChecked,
     id: Date.now()
   }
   tasks = [...tasks, taskObject]
 
-  renderTask(task)
+  renderTask(taskObject)
+
 }
 
-console.log(tasks)
 
 function renderTask(task) {
   const taskTemplateElement = taskTemplate.cloneNode(true)
-  taskTemplateElement.querySelector('.list-item__text').textContent = task
+  taskTemplateElement.querySelector('.list-item__text').textContent = task.task
+
+  taskTemplateElement.querySelector('.btn-delete').addEventListener('click', deleteTask)
+  taskTemplateElement.setAttribute('id', task.id)
+  // taskId.textContent = task.id
+  const taskCheckboxElement = taskTemplateElement.querySelector('.list-checkbox')
+
+  taskCheckboxElement.addEventListener('click', () => toggleCheckbox(task, taskCheckboxElement))
+
   tasksListSection.append(taskTemplateElement)
-  storageCheck()
+
+function checkboxStatusUpload() {
+    if (task.isChecked !== false) {
+      taskCheckboxElement.classList.add('list-checkbox_active')
+    } else {
+      taskCheckboxElement.classList.remove('list-checkbox_active')
+    }
+  }
+  checkboxStatusUpload()
+
+  storageUpdate()
+
+
+
+
 
 }
 
 
-function renderSavedTasks(tasksList) {
-  if (tasksList.length > 0) {
-    tasksList.forEach(task => {
-      renderTask(task.task)
+function toggleCheckbox(task, checkboxElement) {
+  if (!task.isChecked) {
+    task.isChecked = true
+    storageUpdate()
+    checkboxElement.classList.add('list-checkbox_active')
+  } else {
+    task.isChecked = false
+    storageUpdate()
+    checkboxElement.classList.remove('list-checkbox_active')
+  }
+  console.log(task.isChecked)
+
+}
+
+
+  // taskCheckboxElement.classList.remove('list-checkbox_active')
+  //
+  //   tasks = JSON.parse(localStorage.getItem('tasks'))
+  //   tasks.forEach(task => {
+  //     if (task.isChecked === false) {
+  //       task.isChecked = true
+  //       taskCheckboxElement.classList.remove('list-checkbox_active')
+  //     } else {
+  //       taskCheckboxElement.classList.add('list-checkbox_active')
+  //     }
+  //   })
+
+
+
+
+
+
+
+  // taskTemplateElement.querySelector('.list-checkbox').addEventListener('click', () => {
+  //   saveStatus(task.id)
+  // })
+
+
+
+
+
+
+function renderSavedTasks() {
+
+  if (tasks.length > 0) {
+    tasks.forEach(task => {
+      renderTask(task)
+
+      // const taskId = document.querySelectorAll('.list-item__id')
+      //
+      // taskId.textContent = task.id
+
     })
   }
 }
-
-
-
 
 todoItemAddBtn.addEventListener('click', () => {
   addTask()
   newTaskFieldElement.value = ''
 })
+
+
 
 
 // todoItemDelBtn.addEventListener('click', () => {
@@ -66,87 +140,65 @@ todoItemAddBtn.addEventListener('click', () => {
 // }
 
 
-
-function storageCheck() {
+function storageUpdate() {
   localStorage.setItem('tasks', JSON.stringify(tasks))
 
 }
 
-eventListeners()
-function eventListeners() {
+
+function setEventListeners() {
   document.addEventListener('DOMContentLoaded', () => {
     tasks = JSON.parse(localStorage.getItem('tasks'))
-    console.log(tasks)
+
     renderSavedTasks(tasks)
+    console.log(tasks)
+    // console.log(tasks)
   })
-
-  tasksListSection.addEventListener('click', deleteTask)
-
 }
+
+setEventListeners()
 
 function deleteTask(evt) {
-  // evt.target.closest('.list-item').remove()
-  const delTodoId = evt.target.closest('.list-item')
-  console.log(delTodoId)
+  // const delTodoId = parseInt(evt.target.closest('.list-item')
+  //   .querySelector('.list-item__id').textContent)
+
+  const delTodoId = parseInt(evt.target.closest('.list-item').id)
+
+  evt.target.closest('.list-item').remove()
+  tasks = tasks.filter(task => task.id !== delTodoId)
+  storageUpdate()
 }
 
 
 
-//
-// function showTasks() {
-//   let storageSize = localStorage.length
-//   console.log(storageSize)
-//   if (storageSize > 0) {
-//
+
+// function toggleCheckbox(task) {
+//   if (task.isChecked === false) {
+//     task.isChecked = true
 //   }
+  // console.log(task.isChecked)
 // }
-//
-//
-//
-//
-//
-//
-// showTasks()
-//
-// todoItemAddBtn.addEventListener('submit', (evt)
 
 
 
+// function checkStatus() {
+// tasks = JSON.parse(localStorage.getItem('tasks'))
+//   tasks.forEach(task => {
+//     if (task.isChecked === false) {
 //
-// class TodoItem {
-//   constructor(todoText, templateSelector) {
-//     this._todoText = todoText
-//     this._templateSelector = templateSelector
-//   }
-//   _getTemplate() {
-//     return document.querySelector(this._templateSelector)
-//       .content.querySelector('.list-item')
-//       .cloneNode(true)
-//   }
-//
-//   generateItem() {
-//     this._element = this._getTemplate()
-//     this._element.querySelector('.list-item__text').textContent = 'hbjnkn'
-//     return this._element
-//
-//   }
-//
-//   handleRemoveItem = () => {
-//     this._element.remove()
-//     this._element = null
-//   }
-//
-//
-//
-//
+//       document.querySelector('.list-checkbox').classList.add('list-checkbox_active')
+//     }
+//   })
 // }
-//
-//
-//
-// const newItem = new TodoItem('jbjknbjnk', todoItemTemplateSelector)
-//
-//
-// newItem.generateItem()
+
+// checkStatus()
+// console.log(checkboxElement)
+
+// function saveStatus(id) {
+//   // const checkbox = document.getElementById(id).('.list-checkbox')
+//   // localStorage.setItem(id, )
+//   console.log(checkbox)
+// }
 
 
-// console.log(document.querySelector('.list-item__text').textContent)
+

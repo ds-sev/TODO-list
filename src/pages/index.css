@@ -99,11 +99,16 @@ background-repeat: no-repeat;
   border-radius: 50%;
   background-color: black;
   color: white;
+
+
+
 }
 
 .button:hover {
   transition: ease-in .1s;
   opacity: .7;
+
+  cursor: pointer;
 }
 
 .btn-add {
@@ -122,12 +127,15 @@ background-image: url('../images/add_button.svg');
 
 .list-item {
   position: relative;
-  width: 100%;
+  max-width: 100%;
   display: flex;
+
+  justify-content: space-around;
+
   align-items: center;
   margin-bottom: 15px;
   min-height: 40px;
-  font-size: 20px;
+
   outline: 1px solid white;
   color: white;
   border-radius: 20px;
@@ -143,23 +151,40 @@ background-image: url('../images/add_button.svg');
   height: 30px;
 }
 
-
-
-.list-checkbox:checked {
+.list-checkbox_active {
   background-image: url('../images/Check_green_circle.svg');
   border: none;
 }
 
-.list-checkbox:hover {
-  transition: ease-in .1s;
-  opacity: .8;
-}
+
+/*.list-checkbox:checked {*/
+/*  background-image: url('../images/Check_green_circle.svg');*/
+/*  border: none;*/
+/*}*/
+
+/*.list-checkbox:hover {*/
+/*  transition: ease-in .1s;*/
+/*  opacity: .8;*/
+/*}*/
 
 .list-item__text {
-  margin: 8px 0;
-  width: 90%;
+  margin: 0 auto 0 0;
+  max-width: 86%;
+word-wrap: anywhere;
 
+
+  font-size: 20px;
   text-align: start;
+  flex-wrap: wrap;
+
+  /*align-self: start;*/
+  /*margin: 8px 0;*/
+  /*width: 400px;*/
+  /*width: 30%;*/
+
+/*height: 100%;*/
+border: 1px solid red;
+/*  text-align: start;*/
 
 }
 
@@ -170,9 +195,6 @@ background-image: url('../images/add_button.svg');
 .btn-delete:hover {
   background-color: red;
 }
-
-
-
 
 
 .footer {
