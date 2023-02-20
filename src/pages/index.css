@@ -1,15 +1,13 @@
 @import url('../../src/vendor/normalize.css');
 
+html {
+  height: 100%;
+}
+
 ul,
 ol,
 li {
   list-style: none;
-}
-
-
-
-html {
-  height: 100%;
 }
 
 .body {
@@ -22,13 +20,9 @@ html {
   max-width: 1440px;
   margin: 0 auto;
   min-height: 100%;
-
   font-family: Roboto, sans-serif;
   font-weight: 200;
-
   background-color: black;
-
-
 }
 
 .header {
@@ -40,21 +34,19 @@ html {
 .project-title {
   margin-top: 50px;
   margin-bottom: 10px;
-font-weight: 200;
+  font-weight: 200;
 }
 
 .project-subtitle {
   margin: 0;
-
 }
 
 .content {
-text-align: center;
+  text-align: center;
   width: 90%;
   max-width: 600px;
   margin: 0 auto;
   flex: 1 0 auto;
-
 }
 
 .form-container {
@@ -67,75 +59,52 @@ text-align: center;
   align-items: center;
 }
 
-
 .input-form {
-max-height: 80px;
+  max-height: 80px;
   height: 100%;
-
-width: 100%;
+  width: 100%;
   border-style: none;
-
-margin-left: 8px;
+  margin-left: 8px;
   margin-right: 6px;
-outline: none;
-background-color: transparent;
-
-
-
+  outline: none;
+  background-color: transparent;
 }
 
 .button {
   margin-right: 3px;
-  /*position: absolute;*/
-  /*right: 3px;*/
-  /*top: 3px;*/
-  /*top: 50%;*/
-  /*transform: translate(0, -50%);*/
-background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
-  min-width: 35px;
-  height: 35px;
+  min-width: 34px;
+  height: 34px;
   border: none;
   border-radius: 50%;
   background-color: black;
   color: white;
-
-
-
 }
 
 .button:hover {
   transition: ease-in .1s;
   opacity: .7;
-
   cursor: pointer;
 }
 
 .btn-add {
-background-image: url('../images/add_button.svg');
+  background-image: url('../images/add_button.svg');
   background-size: 18px;
-
 }
-
 
 .tasks-list {
   padding: 0;
-
-
-
 }
 
 .list-item {
   position: relative;
   max-width: 100%;
   display: flex;
-
   justify-content: space-around;
-
   align-items: center;
   margin-bottom: 15px;
   min-height: 40px;
-
   outline: 1px solid white;
   color: white;
   border-radius: 20px;
@@ -156,48 +125,25 @@ background-image: url('../images/add_button.svg');
   border: none;
 }
 
-
-/*.list-checkbox:checked {*/
-/*  background-image: url('../images/Check_green_circle.svg');*/
-/*  border: none;*/
-/*}*/
-
-/*.list-checkbox:hover {*/
-/*  transition: ease-in .1s;*/
-/*  opacity: .8;*/
-/*}*/
-
 .list-item__text {
   margin: 0 auto 0 0;
   max-width: 86%;
-word-wrap: anywhere;
-
-
+  word-wrap: anywhere;
   font-size: 20px;
   text-align: start;
   flex-wrap: wrap;
-
-  /*align-self: start;*/
-  /*margin: 8px 0;*/
-  /*width: 400px;*/
-  /*width: 30%;*/
-
-/*height: 100%;*/
-border: 1px solid red;
-/*  text-align: start;*/
-
 }
-
 
 .btn-delete {
   background-image: url('../images/thrash.svg');
 }
+
 .btn-delete:hover {
   background-color: red;
 }
 
-
 .footer {
+  padding-top: 30px;
   padding-bottom: 20px;
   text-align: center;
   flex: 0 0 auto;

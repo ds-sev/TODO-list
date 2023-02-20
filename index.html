@@ -18,17 +18,14 @@
         <p class="project-subtitle">...just do it!</p>
       </header>
       <main class="content">
-        <div class="form-container">
-          <input type="text" class="input-form" placeholder="New Task" minlength="2" maxlength="60" required>
+        <form class="form-container">
+            <input type="text" class="input-form" placeholder="New Task" minlength="1" maxlength="80">
           <button class="btn-add button" type="submit"></button>
-        </div>
-
+        </form>
         <ul class="tasks-list">
-
-
           <template id="todo-item">
-            <li class="list-item"><button class="list-checkbox button" type="button"
-                                          aria-label="Check"></button>
+            <li class="list-item">
+              <button class="list-checkbox button" type="button" aria-label="Check"></button>
               <p class="list-item__text">Lorem ipsum</p>
               <button class="btn-delete button"></button>
             </li>
@@ -36,10 +33,11 @@
         </ul>
       </main>
       <footer class="footer">
-        <span class="footer__copyright">2023
+        <span class="footer__author">2023
           <a class="link" href="https://github.com/ds-sev">Dmitry Litvinenko</a></span>
       </footer>
     </div>
     <script src="src/pages/index.js" defer></script>
   </body>
 </html>
+
